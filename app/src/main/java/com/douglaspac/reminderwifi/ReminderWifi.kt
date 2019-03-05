@@ -89,9 +89,11 @@ class ReminderWifi(private val ctx: Context) : Runnable {
         }
 
         val mBuilder = NotificationCompat.Builder(ctx, channelId)
-            .setSmallIcon(R.drawable.notification_icon_background)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setColor(ctx.resources.getColor(R.color.colorPrimary, ctx.theme))
             .setContentTitle(title)
             .setContentText(body)
+
 
         val stackBuilder = TaskStackBuilder.create(ctx)
         stackBuilder.addNextIntent(intent)
