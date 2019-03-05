@@ -1,31 +1,12 @@
-package com.douglaspac.mobiledatasaver.persister
+package com.douglaspac.mobiledatasaver.utils
 
-import android.content.Context
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
 import java.security.InvalidParameterException
+import java.util.logging.Logger
 
+const val INTERVAL_BETWEEN_JOBS = 5L * 60L * 1000L
 
-object MySharedPref {
-    private const val IS_TURN_ON = "IS_TURN_ON"
-    private const val TOTAL_MOBILE_USAGE = "TOTAL_MOBILE_USAGE"
-
-    fun setTurnOn(ctx: Context, value: Boolean) {
-        PreferenceManager.getDefaultSharedPreferences(ctx).put(IS_TURN_ON, value)
-    }
-
-    fun isTurnOn(ctx: Context): Boolean {
-        return PreferenceManager.getDefaultSharedPreferences(ctx).get(IS_TURN_ON, false)
-    }
-
-    fun getTotalMobileUsage(ctx: Context): Long {
-        return PreferenceManager.getDefaultSharedPreferences(ctx).get(TOTAL_MOBILE_USAGE, 0L)
-    }
-
-    fun setTotalMobileUsage(ctx: Context, value: Long) {
-        PreferenceManager.getDefaultSharedPreferences(ctx).put(TOTAL_MOBILE_USAGE, value)
-    }
-}
+fun Any.logger(): Logger = Logger.getLogger(this.javaClass.name)
 
 inline fun <reified T> SharedPreferences.get(key: String, defaultValue: T): T {
     return when(T::class) {
