@@ -3,4 +3,7 @@
     <string name="app_name">Lembra WiFi</string>
     <string name="on_off">Ligar/Desligar</string>
     <string name="description">Bla bla bla</string>
+    <string name="turn_on_wifi">Ligar WiFi</string>
+    <string name="notification_title">Talvez seja melhor você ligar o WiFi!</string>
+    <string name="notification_body">Foi gasto %1$s nos últimos minutos.</string>
 </resources>
