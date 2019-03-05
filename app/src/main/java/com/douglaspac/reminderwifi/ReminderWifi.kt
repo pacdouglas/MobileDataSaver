@@ -1,39 +1,14 @@
-package com.douglaspac.mobiledatasaver
+package com.douglaspac.reminderwifi
 
 import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.TrafficStats
-import android.os.Bundle
 import android.support.v4.app.NotificationCompat
-import android.support.v7.app.AppCompatActivity
-import com.douglaspac.mobiledatasaver.broadcast.AlarmReceiverRegister
-import com.douglaspac.mobiledatasaver.persister.MySharedPref
-import com.douglaspac.mobiledatasaver.utils.logger
-import kotlinx.android.synthetic.main.activity_main.*
+import com.douglaspac.reminderwifi.persister.MySharedPref
 
-
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val alarmReceiverRegister = AlarmReceiverRegister(this)
-
-        switch_turn_on_off.isChecked = MySharedPref.isTurnOn(this)
-        switch_turn_on_off.setOnCheckedChangeListener { _, isChecked ->
-            MySharedPref.setTurnOn(this, isChecked)
-
-            logger().info("Mobile Data Saver turn on: $isChecked")
-            when {
-                isChecked -> alarmReceiverRegister.register()
-                else -> alarmReceiverRegister.cancel()
-            }
-        }
-    }
-}
-
-class MobileDataSaver(private val ctx: Context) : Runnable {
+class ReminderWifi(private val ctx: Context) : Runnable {
     private val trafficMobileTotal by lazy { TrafficStats.getMobileRxBytes() + TrafficStats.getMobileRxBytes() }
 
     override fun run() {

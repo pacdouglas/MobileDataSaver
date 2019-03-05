@@ -1,4 +1,4 @@
-package com.douglaspac.mobiledatasaver
+package com.douglaspac.reminderwifi
 
 import org.junit.Test
 

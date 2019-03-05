@@ -1,4 +1,4 @@
-package com.douglaspac.mobiledatasaver.utils
+package com.douglaspac.reminderwifi.utils
 
 import android.content.SharedPreferences
 import java.security.InvalidParameterException

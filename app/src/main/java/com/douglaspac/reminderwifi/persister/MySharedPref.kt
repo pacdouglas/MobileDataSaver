@@ -1,9 +1,9 @@
-package com.douglaspac.mobiledatasaver.persister
+package com.douglaspac.reminderwifi.persister
 
 import android.content.Context
 import android.preference.PreferenceManager
-import com.douglaspac.mobiledatasaver.utils.get
-import com.douglaspac.mobiledatasaver.utils.put
+import com.douglaspac.reminderwifi.utils.get
+import com.douglaspac.reminderwifi.utils.put
 
 object MySharedPref {
     private const val IS_TURN_ON = "IS_TURN_ON"

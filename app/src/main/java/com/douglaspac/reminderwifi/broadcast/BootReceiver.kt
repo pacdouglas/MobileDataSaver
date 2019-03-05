@@ -1,9 +1,9 @@
-package com.douglaspac.mobiledatasaver.broadcast
+package com.douglaspac.reminderwifi.broadcast
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.douglaspac.mobiledatasaver.persister.MySharedPref
+import com.douglaspac.reminderwifi.persister.MySharedPref
 
 class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
@@ -11,7 +11,7 @@ class BootReceiver : BroadcastReceiver() {
 
         when {
             MySharedPref.isTurnOn(context) -> alarmReceiverRegister.register()
-            else -> alarmReceiverRegister.register()
+            else -> alarmReceiverRegister.cancel()
         }
     }
 }

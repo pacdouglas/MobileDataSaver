@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="com.douglaspac.mobiledatasaver">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+          package="com.douglaspac.reminderwifi">
+    
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
@@ -14,7 +13,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.douglaspac.reminderwifi.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -22,9 +21,9 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".broadcast.AlarmReceiver"/>
+        <receiver android:name="com.douglaspac.reminderwifi.broadcast.AlarmReceiver"/>
 
-        <receiver android:name=".broadcast.BootReceiver">
+        <receiver android:name="com.douglaspac.reminderwifi.broadcast.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

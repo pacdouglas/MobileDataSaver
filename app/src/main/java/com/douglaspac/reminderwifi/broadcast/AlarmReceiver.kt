@@ -1,12 +1,12 @@
-package com.douglaspac.mobiledatasaver.broadcast
+package com.douglaspac.reminderwifi.broadcast
 
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.douglaspac.mobiledatasaver.MobileDataSaver
-import com.douglaspac.mobiledatasaver.utils.INTERVAL_BETWEEN_JOBS
+import com.douglaspac.reminderwifi.ReminderWifi
+import com.douglaspac.reminderwifi.utils.INTERVAL_BETWEEN_JOBS
 
 class AlarmReceiverRegister(ctx: Context) {
     private val alarmIntent = Intent(ctx, AlarmReceiver::class.java)
@@ -24,6 +24,6 @@ class AlarmReceiverRegister(ctx: Context) {
 
 class AlarmReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        MobileDataSaver(context).run()
+        ReminderWifi(context).run()
     }
 }
