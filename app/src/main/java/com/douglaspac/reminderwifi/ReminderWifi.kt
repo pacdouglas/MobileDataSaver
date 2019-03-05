@@ -1,11 +1,16 @@
 package com.douglaspac.reminderwifi
 
-import android.app.*
+import android.app.KeyguardManager
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.TrafficStats
 import android.support.v4.app.NotificationCompat
+import android.text.format.Formatter
+import com.douglaspac.reminderwifi.broadcast.TurnOnWifiReceiver
 import com.douglaspac.reminderwifi.persister.MySharedPref
 
 class ReminderWifi(private val ctx: Context) : Runnable {
@@ -18,7 +23,7 @@ class ReminderWifi(private val ctx: Context) : Runnable {
         val diff = trafficMobileTotal - lastTotalMobileUsage
 
         if (diff > 5000000L) {
-            showNotification("GastouMalandro", diff.toString())
+            showReminderWiFiNotification(diff)
         }
 
         resetMobileDataValues()
@@ -73,36 +78,31 @@ class ReminderWifi(private val ctx: Context) : Runnable {
         return !isWifiConn && isMobileConn
     }
 
-    private fun showNotification(title: String, body: String) {
-        val intent = Intent(ctx, this::class.java)
+    private fun showReminderWiFiNotification(diffInBytes: Long) {
+        val diffInMegaBytesFormatted = Formatter.formatShortFileSize(ctx, diffInBytes)
+
+        val notificationId = ctx.packageName.length + Math.random().toInt()
+        val intent = Intent(ctx, TurnOnWifiReceiver::class.java).apply {
+            putExtra(TurnOnWifiReceiver.EXTRA_NOTIFICATION_ID, notificationId)
+        }
         val notificationManager = ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        val notificationId = 1
-        val channelId = "channel-01"
-        val channelName = "Channel Name"
-
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            val mChannel = NotificationChannel(
-                channelId, channelName, NotificationManager.IMPORTANCE_HIGH
-            )
-            notificationManager.createNotificationChannel(mChannel)
+            notificationManager.createNotificationChannel(NotificationChannel(
+                "channel-01", "Channel Name", NotificationManager.IMPORTANCE_HIGH
+            ))
         }
 
-        val mBuilder = NotificationCompat.Builder(ctx, channelId)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setColor(ctx.resources.getColor(R.color.colorPrimary, ctx.theme))
-            .setContentTitle(title)
-            .setContentText(body)
+        val pendingIntent = PendingIntent.getBroadcast(ctx, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val builder = NotificationCompat.Builder(ctx, "channel-01").apply {
+            this.setSmallIcon(R.drawable.ic_launcher_foreground)
+            this.color = ctx.resources.getColor(R.color.colorPrimary, ctx.theme)
+            this.setContentTitle(ctx.getString(R.string.notification_title))
+            this.setContentText(ctx.getString(R.string.notification_body, diffInMegaBytesFormatted))
+            this.setAutoCancel(true)
+            this.addAction(R.drawable.ic_launcher_foreground, ctx.getString(R.string.turn_on_wifi), pendingIntent)
+        }
 
-
-        val stackBuilder = TaskStackBuilder.create(ctx)
-        stackBuilder.addNextIntent(intent)
-        val resultPendingIntent = stackBuilder.getPendingIntent(
-            0,
-            PendingIntent.FLAG_UPDATE_CURRENT
-        )
-        mBuilder.setContentIntent(resultPendingIntent)
-
-        notificationManager.notify(notificationId, mBuilder.build())
+        notificationManager.notify(notificationId, builder.build())
     }
 }
