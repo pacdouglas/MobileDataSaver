@@ -14,7 +14,7 @@ import com.douglaspac.reminderwifi.broadcast.TurnOnWifiReceiver
 import com.douglaspac.reminderwifi.persister.MySharedPref
 
 class ReminderWifi(private val ctx: Context) : Runnable {
-    private val trafficMobileTotal by lazy { TrafficStats.getMobileRxBytes() + TrafficStats.getMobileRxBytes() }
+    private val trafficMobileTotal by lazy { TrafficStats.getMobileTxBytes() + TrafficStats.getMobileRxBytes() }
 
     override fun run() {
         if (!canRun()) return
