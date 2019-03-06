@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         val alarmReceiverRegister = AlarmReceiverRegister(this)
-        val dialogLayout = buildContactDialogView()
 
         switch_turn_on_off.isChecked = MySharedPref.isTurnOn(this)
         switch_turn_on_off.setOnCheckedChangeListener { _, isChecked ->
@@ -40,9 +39,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         button_donation.setOnClickListener {
-            AlertDialog.Builder(this).apply {
-                this.setView(dialogLayout)
-            }.show()
+            val dialogLayout = buildContactDialogView()
+            AlertDialog.Builder(this).apply { this.setView(dialogLayout) }.show()
         }
     }
 
