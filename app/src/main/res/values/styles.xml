@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="DialogLTheme" parent="Theme.AppCompat.Light.Dialog">
+    <style name="DialogLTheme" parent="Base.V7.Theme.AppCompat.Light.Dialog">
         <item name="windowNoTitle">true</item>
     </style>
 

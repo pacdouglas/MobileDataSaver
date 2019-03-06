@@ -1,10 +1,11 @@
 package com.douglaspac.reminderwifi.utils
 
 import android.content.SharedPreferences
+import java.lang.RuntimeException
 import java.security.InvalidParameterException
 import java.util.logging.Logger
 
-const val INTERVAL_BETWEEN_JOBS = 5L * 60L * 1000L
+const val INTERVAL_BETWEEN_JOBS = 2L * 60L * 1000L
 const val BITCOIN_WALLET = "1MetJ2EgpnYFKsRiCtVQDKAWegnfK5bv7Z"
 const val EMAIL = "douglas.pac@gmail.com"
 const val LINKEDIN = "https://www.linkedin.com/in/douglasmartinsdm/"
@@ -24,7 +25,7 @@ inline fun <reified T> SharedPreferences.get(key: String, defaultValue: T): T {
             if (defaultValue is Set<*>) {
                 this.getStringSet(key, defaultValue as Set<String>) as T
             } else {
-                throw InvalidParameterException("Invalid parameter")
+                throw RuntimeException("Invalid parameter")
             }
         }
     }
@@ -43,7 +44,7 @@ inline fun <reified T> SharedPreferences.put(key: String, value: T) {
             if (value is Set<*>) {
                 editor.putStringSet(key, value as Set<String>)
             } else {
-                throw InvalidParameterException("Invalid parameter")
+                throw RuntimeException("Invalid parameter")
             }
         }
     }
