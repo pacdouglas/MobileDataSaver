@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.TrafficStats
+import android.os.Build
 import android.support.v4.app.NotificationCompat
 import android.text.format.Formatter
 import com.douglaspac.reminderwifi.broadcast.TurnOnWifiReceiver
@@ -96,7 +97,11 @@ class ReminderWifi(private val ctx: Context) : Runnable {
         val pendingIntent = PendingIntent.getBroadcast(ctx, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         val builder = NotificationCompat.Builder(ctx, "channel-01").apply {
             this.setSmallIcon(R.drawable.ic_launcher_foreground)
-            this.color = ctx.resources.getColor(R.color.colorPrimary, ctx.theme)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                this.color = ctx.resources.getColor(R.color.colorPrimary, ctx.theme)
+            } else {
+                this.color = ctx.resources.getColor(R.color.colorPrimary)
+            }
             this.setContentTitle(ctx.getString(R.string.notification_title))
             this.setContentText(ctx.getString(R.string.notification_body, diffInMegaBytesFormatted))
             this.setAutoCancel(true)
