@@ -5,12 +5,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".activity.MainActivity">
 
     <android.support.v7.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:textAlignment="center"
@@ -24,4 +24,25 @@
             android:text="@string/on_off"
             android:id="@+id/switch_turn_on_off"/>
 
+    <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="15dp"
+                  android:layout_gravity="center"
+                  android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_cheers"/>
+
+        <android.support.v7.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:text="@string/button_donation"
+                android:id="@+id/button_donation"/>
+
+    </android.support.v7.widget.LinearLayoutCompat>
 </android.support.v7.widget.LinearLayoutCompat>
