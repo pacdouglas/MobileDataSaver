@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.wifi.WifiManager
 
-
 class TurnOnWifiReceiver : BroadcastReceiver() {
     companion object {
         const val EXTRA_NOTIFICATION_ID = "EXTRA_NOTIFICATION_ID"
