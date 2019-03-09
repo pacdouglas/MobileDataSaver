@@ -22,7 +22,9 @@ class TurnOnWifiReceiver : BroadcastReceiver() {
         if (!wifiManager.isWifiEnabled) {
             wifiManager.isWifiEnabled = true
         } else {
-            ctx.startActivity(Intent(android.provider.Settings.ACTION_WIFI_SETTINGS))
+            ctx.startActivity(Intent(android.provider.Settings.ACTION_WIFI_SETTINGS).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            })
         }
     }
 }
