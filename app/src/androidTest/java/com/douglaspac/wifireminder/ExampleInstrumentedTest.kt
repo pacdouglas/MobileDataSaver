@@ -1,4 +1,4 @@
-package com.douglaspac.mobiledatasaver
+package com.douglaspac.wifireminder
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("com.douglaspac.mobiledatasaver", appContext.packageName)
+        assertEquals("com.douglaspac.wifireminder", appContext.packageName)
     }
 }

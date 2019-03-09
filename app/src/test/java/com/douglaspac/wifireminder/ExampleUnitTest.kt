@@ -1,4 +1,4 @@
-package com.douglaspac.mobiledatasaver
+package com.douglaspac.wifireminder
 
 import org.junit.Test
 
