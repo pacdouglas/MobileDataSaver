@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lembra WiFi</string>
-    <string name="on_off">Desligar/Ligar</string>
-    <string name="description">Sabe quando você esquece de ligar o WiFi e vai gastando seus dados móveis sem perceber? Aí chega aquela SMS da operadora falando que acabou e ainda tem um mês inteiro pela frente.. Pois trago a solução: \nVamos monitorar o gasto de dados da sua rede móvel. Caso seja utilizado uma grande quantidade de dados em um curto período de tempo, iremos te notificar que seja melhor utilizar o WiFi. \nBasta clicar no botão para ativar e deixar tudo conosco!(Pode manter o app fechado) \n\nAh, e fique tranquilo monitoramos apenas a quantidade de dados, sua privacidade está preservada =) (O código está disponível no GitHub)</string>
-    <string name="turn_on_wifi">Ligar WiFi</string>
-    <string name="notification_title">Talvez seja melhor você ligar o WiFi!</string>
-    <string name="notification_body">Foi gasto %1$s nos últimos minutos.</string>
-    <string name="button_donation">Pague uma cerveja ao desenvolvedor</string>
-    <string name="contact">contato</string>
-    <string name="bitcoin_wallet">Carteira Bitcoin</string>
-    <string name="email">email</string>
+    <string name="app_name">Recorda WiFi</string>
+    <string name="on_off">Apagar/Encender</string>
+    <string name="description">¿Sabe cuando se te olvida de conectar el Wifi y vas a utilizar tus datos móviles sin darte cuenta? En ese momento llega el mensaje de la operadora hablando que acabó sus datos y aún tiene un mes entero por delante. Pues te traigo la solución: \nVamos a monitorear el gasto de datos de tu red móvil. Si se utiliza una gran cantidad de datos en un corto período de tiempo, vamos a notificarte que tal vez sea mejor utilizar el Wifi. \n¡Simplemente haga clic en el botón para activar y dejá lo demás con nosotros!(Puedes dejar la aplicación cerrada.) \n\nAh, y quédete tranquilo, monitoreamos sólo la cantidad de datos, tu privacidad está reservada =) (El código está disponible en GitHub)</string>
+    <string name="turn_on_wifi">Encender WiFi</string>
+    <string name="notification_title">Quizá sea mejor encender el WiFI</string>
+    <string name="notification_body">Fue utilizado %1$s en los últimos minutos.</string>
+    <string name="button_donation">Pague una cerveza al desarrollador</string>
+    <string name="contact">Contacto</string>
+    <string name="bitcoin_wallet">Billetera Bitcoin</string>
+    <string name="email">Correo electrónico</string>
     <string name="linkedin">linkedin</string>
     <string name="github">github</string>
-    <string name="transfer_area_copied">Copiado para área de transferência</string>
+    <string name="transfer_area_copied">Copiado para la carpeta de transferencia</string>
     <string name="picpay">picpay</string>
 </resources>
