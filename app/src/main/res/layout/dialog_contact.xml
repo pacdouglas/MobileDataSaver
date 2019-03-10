@@ -1,31 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.LinearLayoutCompat
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="40dp"
-        android:orientation="vertical"
-        tools:context=".activity.ContactActivity">
+        android:orientation="vertical">
 
     <android.support.v7.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/bitcoin_wallet"
-            android:id="@+id/button_wallet_bitcoin"/>
-
-
-    <android.support.v7.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/picpay"
-            android:id="@+id/button_picpay"/>
-
-    <android.support.v7.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:text="@string/email"
             android:id="@+id/button_email"/>
 

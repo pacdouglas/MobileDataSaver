@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:text="@string/button_donation"
+                android:text="@string/button_contact"
                 android:id="@+id/button_donation"/>
 
     </android.support.v7.widget.LinearLayoutCompat>

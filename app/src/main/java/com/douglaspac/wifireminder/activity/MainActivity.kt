@@ -1,7 +1,5 @@
 package com.douglaspac.wifireminder.activity
 
-import android.content.ClipData
-import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -13,11 +11,13 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.AppCompatButton
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
 import com.douglaspac.wifireminder.R
 import com.douglaspac.wifireminder.broadcast.AlarmReceiverRegister
 import com.douglaspac.wifireminder.persister.MySharedPref
-import com.douglaspac.wifireminder.utils.*
+import com.douglaspac.wifireminder.utils.EMAIL
+import com.douglaspac.wifireminder.utils.GITHUB
+import com.douglaspac.wifireminder.utils.LINKEDIN
+import com.douglaspac.wifireminder.utils.logger
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -47,16 +47,6 @@ class MainActivity : AppCompatActivity() {
     private fun buildContactDialogView(): View {
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         return inflater.inflate(R.layout.dialog_contact, null).apply {
-            this.findViewById<AppCompatButton>(R.id.button_wallet_bitcoin).setOnClickListener {
-                val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                val clip = ClipData.newPlainText(this@MainActivity.getString(R.string.bitcoin_wallet), BITCOIN_WALLET)
-                clipboard.primaryClip = clip
-
-                Toast.makeText(this@MainActivity, this@MainActivity.getString(R.string.transfer_area_copied), Toast.LENGTH_LONG).show()
-            }
-            this.findViewById<AppCompatButton>(R.id.button_picpay).setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(PICPAY)))
-            }
             this.findViewById<AppCompatButton>(R.id.button_email).setOnClickListener {
                 startActivity(Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:$EMAIL")))
             }

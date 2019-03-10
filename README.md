@@ -1,3 +1,11 @@
+# Make a donation to developer
+Wallet BitCoin: 3KbNqQ127uWWVs3eD6oD5apkuZPpjk1fCF
+
+PicPay: https://app.picpay.com/user/douglas.martins.pac
+
+# Google Play
+https://play.google.com/store/apps/details?id=com.douglaspac.wifireminder
+
 # WiFiReminder
 A simple APP to send you a reminder when you're using too much mobile data.
 

@@ -6,12 +6,9 @@
     <string name="turn_on_wifi">Encender WiFi</string>
     <string name="notification_title">Quizá sea mejor encender el WiFI</string>
     <string name="notification_body">Fue utilizado %1$s en los últimos minutos.</string>
-    <string name="button_donation">Pague una cerveza al desarrollador</string>
-    <string name="contact">Contacto</string>
-    <string name="bitcoin_wallet">Billetera Bitcoin</string>
+    <string name="button_contact">contacto con el desarrollador</string>
     <string name="email">Correo electrónico</string>
     <string name="linkedin">linkedin</string>
     <string name="github">github</string>
     <string name="transfer_area_copied">Copiado para la carpeta de transferencia</string>
-    <string name="picpay">picpay</string>
 </resources>

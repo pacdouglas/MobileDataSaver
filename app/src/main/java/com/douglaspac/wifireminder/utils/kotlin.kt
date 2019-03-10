@@ -5,11 +5,9 @@ import java.lang.RuntimeException
 import java.util.logging.Logger
 
 const val INTERVAL_BETWEEN_JOBS = 2L * 60L * 1000L
-const val BITCOIN_WALLET = "3KbNqQ127uWWVs3eD6oD5apkuZPpjk1fCF"
 const val EMAIL = "douglas.pac@gmail.com"
 const val LINKEDIN = "https://www.linkedin.com/in/douglasmartinsdm/"
 const val GITHUB = "https://github.com/pacdouglas/WiFiReminder"
-const val PICPAY = "https://app.picpay.com/user/douglas.martins.pac"
 
 fun Any.logger(): Logger = Logger.getLogger(this.javaClass.name)
 
