@@ -11,4 +11,6 @@
     <string name="linkedin">linkedin</string>
     <string name="github">github</string>
     <string name="transfer_area_copied">Copied to the clipboard</string>
+    <string name="button_mute_for_one_hour">Mute for 1 hour</string>
+    <string name="mute_toast">You won\'t be notified until %1$s</string>
 </resources>

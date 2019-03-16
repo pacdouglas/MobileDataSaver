@@ -9,6 +9,7 @@ object MySharedPref {
     private const val IS_TURN_ON = "IS_TURN_ON"
     private const val TOTAL_MOBILE_USAGE = "TOTAL_MOBILE_USAGE"
     private const val LAST_VERIFIED_TIME = "LAST_VERIFIED_TIME"
+    private const val MUTE_UNTIL = "MUTE_UNTIL"
 
     fun setTurnOn(ctx: Context, value: Boolean) {
         PreferenceManager.getDefaultSharedPreferences(ctx).put(IS_TURN_ON, value)
@@ -32,5 +33,13 @@ object MySharedPref {
 
     fun setLastVerifiedTime(ctx: Context, value: Long) {
         PreferenceManager.getDefaultSharedPreferences(ctx).put(LAST_VERIFIED_TIME, value)
+    }
+
+    fun getMuteUntil(ctx: Context): Long {
+        return PreferenceManager.getDefaultSharedPreferences(ctx).get(MUTE_UNTIL, 0L)
+    }
+
+    fun setMuteUntil(ctx: Context, value: Long) {
+        PreferenceManager.getDefaultSharedPreferences(ctx).put(MUTE_UNTIL, value)
     }
 }

@@ -1,7 +1,9 @@
 package com.douglaspac.wifireminder.utils
 
+import android.app.NotificationManager
+import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
-import java.lang.RuntimeException
 import java.util.logging.Logger
 
 const val INTERVAL_BETWEEN_JOBS = 2L * 60L * 1000L
@@ -47,4 +49,16 @@ inline fun <reified T> SharedPreferences.put(key: String, value: T) {
     }
 
     editor.apply()
+}
+
+const val EXTRA_NOTIFICATION_ID = "EXTRA_NOTIFICATION_ID"
+fun removeNotification(ctx: Context, intent: Intent) {
+    val notificationManager = ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    val notificationId = intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0)
+
+    if (notificationId != 0) {
+        notificationManager.cancel(notificationId)
+    }
+
+    ctx.sendBroadcast(Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS))
 }

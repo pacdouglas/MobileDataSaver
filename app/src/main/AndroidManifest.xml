@@ -27,9 +27,11 @@
 
         <receiver android:name="com.douglaspac.wifireminder.broadcast.AlarmReceiver"/>
         <receiver android:name="com.douglaspac.wifireminder.broadcast.TurnOnWifiReceiver"/>
+        <receiver android:name="com.douglaspac.wifireminder.broadcast.MuteReceiver"/>
         <receiver android:name="com.douglaspac.wifireminder.broadcast.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
             </intent-filter>
         </receiver>
     </application>

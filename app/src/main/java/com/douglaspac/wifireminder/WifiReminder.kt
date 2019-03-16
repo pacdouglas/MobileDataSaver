@@ -11,8 +11,10 @@ import android.net.TrafficStats
 import android.os.Build
 import android.support.v4.app.NotificationCompat
 import android.text.format.Formatter
+import com.douglaspac.wifireminder.broadcast.MuteReceiver
 import com.douglaspac.wifireminder.broadcast.TurnOnWifiReceiver
 import com.douglaspac.wifireminder.persister.MySharedPref
+import com.douglaspac.wifireminder.utils.EXTRA_NOTIFICATION_ID
 
 class WifiReminder(private val ctx: Context) : Runnable {
     private val trafficMobileTotal by lazy { TrafficStats.getMobileTxBytes() + TrafficStats.getMobileRxBytes() }
@@ -45,9 +47,16 @@ class WifiReminder(private val ctx: Context) : Runnable {
             return false
         }
 
+        val now = System.currentTimeMillis()
         val lastVerified = MySharedPref.getLastVerifiedTime(ctx)
-        val tenAgo = System.currentTimeMillis() - (10 * 60 * 1000)
+        val tenAgo = now - (10 * 60 * 1000)
         if (lastVerified < tenAgo) {
+            resetMobileDataValues()
+            return false
+        }
+
+        val muteUntil = MySharedPref.getMuteUntil(ctx)
+        if (muteUntil > now) {
             resetMobileDataValues()
             return false
         }
@@ -83,9 +92,6 @@ class WifiReminder(private val ctx: Context) : Runnable {
         val diffInMegaBytesFormatted = Formatter.formatShortFileSize(ctx, diffInBytes)
 
         val notificationId = ctx.packageName.length + Math.random().toInt()
-        val intent = Intent(ctx, TurnOnWifiReceiver::class.java).apply {
-            putExtra(TurnOnWifiReceiver.EXTRA_NOTIFICATION_ID, notificationId)
-        }
         val notificationManager = ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -94,7 +100,16 @@ class WifiReminder(private val ctx: Context) : Runnable {
             ))
         }
 
-        val pendingIntent = PendingIntent.getBroadcast(ctx, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val intentTurnOnWiFi = Intent(ctx, TurnOnWifiReceiver::class.java).apply {
+            putExtra(EXTRA_NOTIFICATION_ID, notificationId)
+        }
+        val pendingIntentTurnOnWiFi = PendingIntent.getBroadcast(ctx, 1, intentTurnOnWiFi, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        val intentMute = Intent(ctx, MuteReceiver::class.java).apply {
+            putExtra(EXTRA_NOTIFICATION_ID, notificationId)
+        }
+        val pendingIntentMute = PendingIntent.getBroadcast(ctx, 1, intentMute, PendingIntent.FLAG_UPDATE_CURRENT)
+
         val builder = NotificationCompat.Builder(ctx, "channel-01").apply {
             this.setSmallIcon(R.drawable.ic_launcher_foreground)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -105,7 +120,8 @@ class WifiReminder(private val ctx: Context) : Runnable {
             this.setContentTitle(ctx.getString(R.string.notification_title))
             this.setContentText(ctx.getString(R.string.notification_body, diffInMegaBytesFormatted))
             this.setAutoCancel(true)
-            this.addAction(R.drawable.ic_launcher_foreground, ctx.getString(R.string.turn_on_wifi), pendingIntent)
+            this.addAction(0, ctx.getString(R.string.turn_on_wifi), pendingIntentTurnOnWiFi)
+            this.addAction(0, ctx.getString(R.string.button_mute_for_one_hour), pendingIntentMute)
         }
 
         notificationManager.notify(notificationId, builder.build())
