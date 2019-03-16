@@ -7,6 +7,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.TrafficStats
 import android.os.Build
 import android.support.v4.app.NotificationCompat
@@ -75,14 +76,9 @@ class WifiReminder(private val ctx: Context) : Runnable {
         var isMobileConn = false
 
         connMgr.allNetworks.forEach { network ->
-            connMgr.getNetworkInfo(network).apply {
-                if (type == ConnectivityManager.TYPE_WIFI) {
-                    isWifiConn = isWifiConn or isConnected
-                }
-                if (type == ConnectivityManager.TYPE_MOBILE) {
-                    isMobileConn = isMobileConn or isConnected
-                }
-            }
+            val caps = connMgr.getNetworkCapabilities(network)
+            isWifiConn = isWifiConn or caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+            isMobileConn = isMobileConn or caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
         }
 
         return !isWifiConn && isMobileConn
@@ -94,7 +90,7 @@ class WifiReminder(private val ctx: Context) : Runnable {
         val notificationId = ctx.packageName.length + Math.random().toInt()
         val notificationManager = ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             notificationManager.createNotificationChannel(NotificationChannel(
                 "channel-01", this.javaClass.simpleName, NotificationManager.IMPORTANCE_HIGH
             ))
