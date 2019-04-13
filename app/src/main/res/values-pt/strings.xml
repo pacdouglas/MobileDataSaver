@@ -13,4 +13,5 @@
     <string name="transfer_area_copied">Copiado para área de transferência</string>
     <string name="button_mute_for_one_hour">Silenciar por 1h</string>
     <string name="mute_toast">Você não será notificado até %1$s.</string>
+    <string name="notify_after">Notificar a partir de</string>
 </resources>

@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.AppCompatButton
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import com.douglaspac.wifireminder.R
 import com.douglaspac.wifireminder.broadcast.AlarmReceiverRegister
 import com.douglaspac.wifireminder.persister.MySharedPref
@@ -39,6 +41,22 @@ class MainActivity : AppCompatActivity() {
                 else -> alarmReceiverRegister.cancel()
             }
         }
+
+        spinner_notify_conf.adapter = ArrayAdapter.createFromResource(this,
+            R.array.notify_conf, android.R.layout.simple_spinner_item).apply {
+            setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        }
+
+        val stringArray = this.resources.getStringArray(R.array.notify_conf)
+        spinner_notify_conf.setSelection(stringArray.indexOf(MySharedPref.getNotifyAfter(this).toString() + "MB"))
+        spinner_notify_conf.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val value = stringArray[position].replace("MB", "").toInt()
+                MySharedPref.setNotifyAfter(this@MainActivity, value)
+            }
+        }
+
         button_donation.setOnClickListener {
             val dialogLayout = buildContactDialogView()
             AlertDialog.Builder(this).apply { this.setView(dialogLayout) }.show()

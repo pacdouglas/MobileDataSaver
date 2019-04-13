@@ -26,7 +26,8 @@ class WifiReminder(private val ctx: Context) : Runnable {
         val lastTotalMobileUsage = MySharedPref.getTotalMobileUsage(ctx)
         val diff = trafficMobileTotal - lastTotalMobileUsage
 
-        if (diff > 5000000L) {
+        val notifyAfter = MySharedPref.getNotifyAfter(ctx).toLong() * 1000000L
+        if (diff > notifyAfter) {
             showWiFiReminderNotification(diff)
         }
 

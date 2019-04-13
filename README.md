@@ -18,4 +18,4 @@ It's just click the button to activate the background service and leave it all w
 Oh, and you can relax! We only monitor just how much your mobile data usage, your privacy is preserved. =)
 
 **How the calculation works:**
-If you are using Internet by data mobile, every 2 minutes a comparison is made with 2 minutes ago in data usage, if in that time period was spent more than 5MB, a notification is sent.
+If you are using Internet by data mobile, every 2 minutes a comparison is made with 2 minutes ago in data usage, if in that time period was spent more than 5MB (or you can choose other value on app), a notification is sent.

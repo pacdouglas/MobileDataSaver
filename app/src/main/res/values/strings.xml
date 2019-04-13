@@ -13,4 +13,13 @@
     <string name="transfer_area_copied">Copied to the clipboard</string>
     <string name="button_mute_for_one_hour">Mute for 1 hour</string>
     <string name="mute_toast">You won\'t be notified until %1$s</string>
+    <string name="notify_after">Notify after</string>
+
+    <string-array name="notify_conf">
+        <item>5MB</item>
+        <item>15MB</item>
+        <item>30MB</item>
+        <item>45MB</item>
+        <item>60MB</item>
+    </string-array>
 </resources>
