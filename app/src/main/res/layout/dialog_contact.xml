@@ -26,4 +26,18 @@
             android:text="@string/github"
             android:id="@+id/button_github"/>
 
+    <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/rate_this_app"
+            android:id="@+id/button_rate"/>
+
+    <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/make_donation"
+            android:id="@+id/button_donation"/>
+
 </android.support.v7.widget.LinearLayoutCompat>

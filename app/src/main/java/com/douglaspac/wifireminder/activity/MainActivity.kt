@@ -3,7 +3,6 @@ package com.douglaspac.wifireminder.activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -15,6 +14,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.douglaspac.wifireminder.R
 import com.douglaspac.wifireminder.broadcast.AlarmReceiverRegister
+import com.douglaspac.wifireminder.broadcast.RateReceiver
 import com.douglaspac.wifireminder.persister.MySharedPref
 import com.douglaspac.wifireminder.utils.EMAIL
 import com.douglaspac.wifireminder.utils.GITHUB
@@ -75,16 +75,16 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:$EMAIL")))
             }
             this.findViewById<AppCompatButton>(R.id.button_linkedin).setOnClickListener {
-                var intent = Intent(Intent.ACTION_VIEW, Uri.parse("linkedin://$LINKEDIN"))
-                val packageManager = this@MainActivity.packageManager
-                val list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
-                if (list.isEmpty()) {
-                    intent = Intent(Intent.ACTION_VIEW, Uri.parse(LINKEDIN))
-                }
-                startActivity(intent)
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(LINKEDIN)))
             }
             this.findViewById<AppCompatButton>(R.id.button_github).setOnClickListener {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB)))
+            }
+            this.findViewById<AppCompatButton>(R.id.button_rate).setOnClickListener {
+                sendBroadcast(Intent(this@MainActivity, RateReceiver::class.java))
+            }
+            this.findViewById<AppCompatButton>(R.id.button_donation).setOnClickListener {
+                startActivity(Intent(this@MainActivity, DonationActivity::class.java))
             }
         }
     }

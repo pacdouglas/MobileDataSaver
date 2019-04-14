@@ -1,9 +1,13 @@
 package com.douglaspac.wifireminder.utils
 
+import android.app.Activity
 import android.app.NotificationManager
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
+import android.support.v7.app.AlertDialog
+import com.douglaspac.wifireminder.R
 import java.util.logging.Logger
 
 const val INTERVAL_BETWEEN_JOBS = 2L * 60L * 1000L
@@ -53,7 +57,7 @@ inline fun <reified T> SharedPreferences.put(key: String, value: T) {
 
 const val EXTRA_NOTIFICATION_ID = "EXTRA_NOTIFICATION_ID"
 fun removeNotification(ctx: Context, intent: Intent) {
-    val notificationManager = ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    val notificationManager = ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager? ?: return
     val notificationId = intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0)
 
     if (notificationId != 0) {
@@ -61,4 +65,13 @@ fun removeNotification(ctx: Context, intent: Intent) {
     }
 
     ctx.sendBroadcast(Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS))
+}
+
+fun Activity.openSimpleDialog(title: String, message: String) {
+    AlertDialog.Builder(this).apply {
+        setTitle(title)
+        setMessage(message)
+        setCancelable(true)
+        setNeutralButton(android.R.string.ok) { dialog, _ -> dialog.dismiss() }
+    }.show()
 }
