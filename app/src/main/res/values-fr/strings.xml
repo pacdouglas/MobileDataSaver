@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Rappel WiFi</string>
+    <string name="on_off">Éteint/allumé</string>
+    <string name="description">Vous savez quand vous oubliez d\'activer le WiFi et de dépenser vos données mobiles sans même vous en rendre compte? Vous réalisez ensuite que vous avez utilisé tout votre quota et qu\'il vous reste encore un mois. Nous vous apportons une solution:\nNous surveillerons votre utilisation des données mobiles. Si nous remarquons une utilisation élevée sur une courte période, nous vous informerons qu\'il est préférable d\'utiliser le WiFi.\nCliquez simplement sur le bouton pour activer le service d\'arrière-plan et laissez tout cela avec nous! (Vous pouvez laisser l\'application fermée)\n\nOh, et vous pourrez vous détendre! Nous surveillons uniquement votre utilisation des données mobiles, votre vie privée est préservée. =) (Le code source est disponible sur GitHub)</string>
+    <string name="turn_on_wifi">Activer le WiFi</string>
+    <string name="notification_title">Peut-être que c\'est mieux si vous activez le WiFi!</string>
+    <string name="notification_body">Vous avez utilisé %1$s dans les dernières minutes.</string>
+    <string name="button_contact">contacter le développeur</string>
+    <string name="button_mute_for_one_hour">Muet pendant 1heure</string>
+    <string name="mute_toast">Vous ne serez pas averti avant %1$s</string>
+    <string name="notify_after">Notifier après</string>
+    <string name="rate_this_app">Évaluer l\'application</string>
+    <string name="make_donation">Faire un don</string>
+    <string name="donations_description">Trouvez-vous cette application utile?\nSoutenez son développement en envoyant un don au développeur!</string>
+    <string name="donations_google_description">Google facture des frais de 30%</string>
+    <string name="donations_donate">Faire un don!</string>
+    <string name="donations_thanks_dialog_title">Merci!</string>
+    <string name="donations_thanks_dialog">Merci d\'avoir fait un don, j\'apprécie vraiment cela!</string>
+    <string name="donations_bitcoin_description">Envoyez n\'importe quelle quantité de bitcoin au développeur. Appuyez longuement sur le bouton pour copier l\'adresse.</string>
+    <string name="donations_bitcoin_send">Envoyez bitcoin!</string>
+    <string name="donations_bitcoin_toast_copy">L\'adresse Bitcoin a été copiée dans le presse-papier!</string>
+    <string name="donation_paypal_item">Don</string>
+    <string name="donations__pay_pal_description">Vous pouvez choisir le montant de votre don après avoir cliqué sur le bouton!</string>
+    <string name="donation_error">Erreur est survenue</string>
+    <string name="donation_error_description">J\'apprécie vraiment votre aide, mais votre appareil n\'est pas compatible avec cette méthode. Peut-être par votre version de Google Play Store. Pourriez-vous essayer une autre façon?</string>
+    <string name="notification_donation_title">May you help me?!</string>
+    <string name="notification_donation_body">Vous avez déjà reçu %1$s rappels!</string>
+</resources>
