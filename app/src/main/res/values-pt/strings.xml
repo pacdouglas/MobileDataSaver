@@ -7,10 +7,22 @@
     <string name="notification_title">Talvez seja melhor você ligar o WiFi!</string>
     <string name="notification_body">Foi gasto %1$s nos últimos minutos.</string>
     <string name="button_contact">Contate o desenvolvedor</string>
-    <string name="email">email</string>
-    <string name="linkedin">linkedin</string>
-    <string name="github">github</string>
-    <string name="transfer_area_copied">Copiado para área de transferência</string>
-    <string name="button_mute_for_one_hour">Silenciar por 1h</string>
+    <string name="button_mute_for_one_hour">Silenciar por 1hora</string>
     <string name="mute_toast">Você não será notificado até %1$s.</string>
+    <string name="notify_after">Notificar a partir de</string>
+    <string name="rate_this_app">Avalie o aplicativo</string>
+    <string name="make_donation">Faça uma doação</string>
+    <string name="donations_description">Você acha este aplicativo útil?\nApoie seu desenvolvimento enviando uma doação para o desenvolvedor!</string>
+    <string name="donations_google_description">Google cobra uma taxa de 30%</string>
+    <string name="donations_donate">Doar!</string>
+    <string name="donations_thanks_dialog_title">Muito Obrigado!</string>
+    <string name="donations_thanks_dialog">Obrigado pela sua doação!\nAgradeço imensamente!</string>
+    <string name="donations_bitcoin_description">Envie qualquer quantia de bitcoin para o desenvolvedor. Pressione e segure o botão para copiar o endereço.</string>
+    <string name="donations_bitcoin_send">Enviar bitcoin!</string>
+    <string name="donations_bitcoin_toast_copy">Endereço bitcoin copiado para área de transferência!</string>
+    <string name="donations__pay_pal_description">Você pode escolher quanto deseja doar depois de clicar no botão!</string>
+    <string name="donation_error">Ocorreu um erro</string>
+    <string name="donation_error_description">Eu realmente aprecio sua intenção de me apoiar, mas seu dispositivo não é compatível com esse método, talvez pela sua versão da Google Play Store. Você poderia tentar de outra maneira?</string>
+    <string name="notification_donation_title">Você pode me apoiar?!</string>
+    <string name="notification_donation_body">Você já recebeu %1$s lembretes!</string>
 </resources>

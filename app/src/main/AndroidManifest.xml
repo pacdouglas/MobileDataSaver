@@ -7,17 +7,21 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
-            android:screenOrientation="portrait"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
+            android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.douglaspac.wifireminder.activity.MainActivity">
+        <activity android:name=".activity.DonationActivity">
+        </activity>
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -25,10 +29,11 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.douglaspac.wifireminder.broadcast.AlarmReceiver"/>
-        <receiver android:name="com.douglaspac.wifireminder.broadcast.TurnOnWifiReceiver"/>
-        <receiver android:name="com.douglaspac.wifireminder.broadcast.MuteReceiver"/>
-        <receiver android:name="com.douglaspac.wifireminder.broadcast.BootReceiver">
+        <receiver android:name=".broadcast.AlarmReceiver"/>
+        <receiver android:name=".broadcast.TurnOnWifiReceiver"/>
+        <receiver android:name=".broadcast.MuteReceiver"/>
+        <receiver android:name=".broadcast.RateReceiver"/>
+        <receiver android:name=".broadcast.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>

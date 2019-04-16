@@ -7,10 +7,43 @@
     <string name="notification_title">Maybe it\'s better if you turn WiFi on!</string>
     <string name="notification_body">You\'ve used %1$s in the last few minutes.</string>
     <string name="button_contact">contact the developer</string>
-    <string name="email">email</string>
-    <string name="linkedin">linkedin</string>
-    <string name="github">github</string>
-    <string name="transfer_area_copied">Copied to the clipboard</string>
+    <string name="email" translatable="false">email</string>
+    <string name="linkedin" translatable="false">linkedin</string>
+    <string name="github" translatable="false">github</string>
     <string name="button_mute_for_one_hour">Mute for 1 hour</string>
     <string name="mute_toast">You won\'t be notified until %1$s</string>
+    <string name="notify_after">Notify after</string>
+    <string name="rate_this_app">Rate this app</string>
+    <string name="make_donation">Make a donation</string>
+    <string name="donations_description">Do you find this application useful?\nSupport its development by sending a donation to the developer!</string>
+    <string name="donations_google_description">Google charges a fee of 30%</string>
+    <string name="donations_donate">Donate!</string>
+    <string name="donations_thanks_dialog_title">Thanks!</string>
+    <string name="donations_thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
+    <string name="donations_bitcoin_description">Send any amount of bitcoin to the developer. Press and hold button to copy address.</string>
+    <string name="donations_bitcoin_send">Send bitcoin!</string>
+    <string name="donations_bitcoin_toast_copy">Bitcoin address has been copied to the clipboard!</string>
+    <string name="donation_paypal_item" translatable="false">Donation WiFiReminder</string>
+    <string name="donations_google_pay" translatable="false">Google Play Store</string>
+    <string name="donations_pay_pal" translatable="false">PayPal</string>
+    <string name="donations_bitcoin" translatable="false">Bitcoin</string>
+    <string name="donations__pay_pal_description">You can choose how much you want to donate after clicking the button!</string>
+    <string name="donation_error">Error occurred</string>
+    <string name="donation_error_description">I truly appreciate your intent to support me, but your device is not compatible with this method, maybe by your Google Play Store version. Could you try another way?</string>
+    <string name="notification_donation_title">May you support me?!</string>
+    <string name="notification_donation_body">You\'ve already received %1$s reminders!</string>
+
+    <string-array name="notify_conf">
+        <item>5MB</item>
+        <item>15MB</item>
+        <item>30MB</item>
+        <item>45MB</item>
+    </string-array>
+    <string-array name="donation_google_catalog_values">
+        <item>5 Reais</item>
+        <item>10 Reais</item>
+        <item>20 Reais</item>
+        <item>50 Reais</item>
+        <item>100 Reais</item>
+    </string-array>
 </resources>

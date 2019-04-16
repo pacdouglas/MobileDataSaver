@@ -10,6 +10,8 @@ object MySharedPref {
     private const val TOTAL_MOBILE_USAGE = "TOTAL_MOBILE_USAGE"
     private const val LAST_VERIFIED_TIME = "LAST_VERIFIED_TIME"
     private const val MUTE_UNTIL = "MUTE_UNTIL"
+    private const val NOTIFY_AFTER = "NOTIFY_AFTER"
+    private const val NOTIFY_COUNTER = "NOTIFY_COUNTER"
 
     fun setTurnOn(ctx: Context, value: Boolean) {
         PreferenceManager.getDefaultSharedPreferences(ctx).put(IS_TURN_ON, value)
@@ -41,5 +43,21 @@ object MySharedPref {
 
     fun setMuteUntil(ctx: Context, value: Long) {
         PreferenceManager.getDefaultSharedPreferences(ctx).put(MUTE_UNTIL, value)
+    }
+
+    fun getNotifyAfter(ctx: Context): Int {
+        return PreferenceManager.getDefaultSharedPreferences(ctx).get(NOTIFY_AFTER, 5)
+    }
+
+    fun setNotifyAfter(ctx: Context, value: Int) {
+        PreferenceManager.getDefaultSharedPreferences(ctx).put(NOTIFY_AFTER, value)
+    }
+
+    fun getNotifyCounter(ctx: Context): Int {
+        return PreferenceManager.getDefaultSharedPreferences(ctx).get(NOTIFY_COUNTER, 1)
+    }
+
+    fun setNotifyCounter(ctx: Context, value: Int) {
+        PreferenceManager.getDefaultSharedPreferences(ctx).put(NOTIFY_COUNTER, value)
     }
 }
