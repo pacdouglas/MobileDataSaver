@@ -1,10 +1,3 @@
-# Make a donation to developer
-Paypal: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=douglas.pac%40gmail.com&lc=US&item_name=Donation%20WiFiReminder&no_note=1&no_shipping=1&currency_code=USD
-
-Wallet BitCoin: 3KbNqQ127uWWVs3eD6oD5apkuZPpjk1fCF
-
-PicPay: https://app.picpay.com/user/douglas.martins.pac
-
 # Google Play
 https://play.google.com/store/apps/details?id=com.douglaspac.wifireminder
 
